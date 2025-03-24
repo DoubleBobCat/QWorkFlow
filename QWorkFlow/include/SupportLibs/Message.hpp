@@ -48,27 +48,33 @@ Message::~Message() {}
 /// @param int_messageType A int as the Message type.
 /// @return A boolen as if this function run sucessful.
 bool Message::Print(str str_place, str str_message, int int_messageType) {
-  switch (int_messageType) {
-    case 1: {
-      std::cout << "I:";
-      break;
+  try {
+    switch (int_messageType) {
+      case 1: {
+        std::cout << "I: ";
+        break;
+      }
+      case 2: {
+        std::cout << "W: ";
+        break;
+      }
+      case 3: {
+        std::cout << "E: ";
+        break;
+      }
+      default:
+        std::cerr << "Invalid messageType: "
+                  << static_cast<int>(int_messageType) << "; ";
+        break;
     }
-    case 2: {
-      std::cout << "W:";
-      break;
-    }
-    case 3: {
-      std::cout << "E:";
-      break;
-    }
-    default:
-      std::cerr << "Invalid message type: "
-                << static_cast<int>(int_messageType);
-      break;
+    std::cout << "In model: " << Message::str_modelName << "; ";
+    std::cout << "In Place: " << str_place << "; ";
+    std::cout << "Got: " << str_message << "\n";
+    return true;
+  } catch (const char* msg) {
+    std::cerr << msg << std::endl;
+    return false;
   }
-  std::cout << "In model:" << Message::str_modelName << ";";
-  std::cout << "In Place:" << str_place << ";";
-  std::cout << "Got:" << str_message << "\n";
 }
 
 /// @brief Print Message to console.
