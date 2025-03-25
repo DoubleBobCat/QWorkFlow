@@ -2,14 +2,6 @@
 
 #include <iostream>
 
-#ifndef cout
-#define cout std::cout
-#endif
-
-#ifndef endl
-#define endl std::endl
-#endif
-
 void check(str func, str get, str need) {
   cout << "***In_Test: " << func << ";";
   if (get == need) {

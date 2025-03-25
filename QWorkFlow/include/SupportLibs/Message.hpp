@@ -4,9 +4,7 @@
 #include <iostream>
 #include <map>
 
-#ifndef str
-#define str std::string
-#endif
+#include "publicDefine.h"
 
 /// @brief A class for print message.
 class Message {
@@ -51,15 +49,15 @@ bool Message::Print(str str_place, str str_message, int int_messageType) {
   try {
     switch (int_messageType) {
       case 1: {
-        std::cout << "I: ";
+        cout << "I: ";
         break;
       }
       case 2: {
-        std::cout << "W: ";
+        cout << "W: ";
         break;
       }
       case 3: {
-        std::cout << "E: ";
+        cout << "E: ";
         break;
       }
       default:
@@ -67,12 +65,12 @@ bool Message::Print(str str_place, str str_message, int int_messageType) {
                   << static_cast<int>(int_messageType) << "; ";
         break;
     }
-    std::cout << "In model: " << Message::str_modelName << "; ";
-    std::cout << "In Place: " << str_place << "; ";
-    std::cout << "Got: " << str_message << "\n";
+    cout << "In model: " << Message::str_modelName << "; ";
+    cout << "In Place: " << str_place << "; ";
+    cout << "Got: " << str_message << "\n";
     return true;
   } catch (const char* msg) {
-    std::cerr << msg << std::endl;
+    std::cerr << msg << endl;
     return false;
   }
 }
@@ -99,7 +97,7 @@ bool Message::PlaceList::add(int int_place, str str_place) {
     try {
       map_placeList.insert(std::pair<int, std::string>(int_place, str_place));
     } catch (const char* msg) {
-      std::cerr << msg << std::endl;
+      std::cerr << msg << endl;
       return false;
     }
     return true;
