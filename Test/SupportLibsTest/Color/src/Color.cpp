@@ -1,13 +1,13 @@
-#include "../../../../QWorkFlow/include/SupportLibs/Message.hpp"
+#include "../../../../QWorkFlow/include/SupportLibs/Color.hpp"
 
 #include <iostream>
 
 #include "../../include/easyTest.hpp"
 
 int main() {
-  Message message("Test");
+  Color color(200, 200, 200);
 
-  check("placeList addStr", message.placeList.add("place1"), true);
+  check("placeList addStr", color.RGB2Hex(color), true);
   check("placeList IterAddStr", message.placeList.add(1, "place2"), true);
   check("placeList WIterAddStr", message.placeList.add(0, "place2"), false);
 
